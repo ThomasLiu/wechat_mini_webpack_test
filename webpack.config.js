@@ -1,14 +1,11 @@
 const { resolve } = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MinaWebpackPlugin = require("./plugin/MinaWebpackPlugin");
 
 module.exports = {
   context: resolve("src"),
-  entry: {
-    app: "./app.js",
-    "pages/index/index": "./pages/index/index.js",
-    "pages/logs/logs": "./pages/logs/logs.js",
-  },
+  entry: "./app.js",
   output: {
     path: resolve("dist"),
     filename: "[name].js",
@@ -22,6 +19,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new MinaWebpackPlugin(),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
