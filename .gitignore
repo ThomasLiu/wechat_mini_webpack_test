@@ -1,0 +1,17 @@
+**/.DS_Store
+*.log
+*.temp
+/node_modules
+/dist
+*.idea
+.idea/
+.idea
+.log
+*.less
+package-lock.json
+yarn.lock
+coverage/
+/components/.DS_Store
+.vscode
+.env
+/*.code-workspace
