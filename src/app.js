@@ -1,13 +1,7 @@
 //app.js
 
-import moment from "moment";
-
 App({
   onLaunch: function () {
-    console.log("-------------------------");
-    let testText = moment(new Date().getTime() - 360000).fromNow();
-    console.log("testText", testText);
-
     // 展示本地存储能力
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());

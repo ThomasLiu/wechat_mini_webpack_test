@@ -2,6 +2,7 @@ const { resolve } = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MinaWebpackPlugin = require("./plugin/MinaWebpackPlugin");
+const MinaRuntimePlugin = require("./plugin/MinaRuntimePlugin");
 
 module.exports = {
   context: resolve("src"),
@@ -9,6 +10,7 @@ module.exports = {
   output: {
     path: resolve("dist"),
     filename: "[name].js",
+    globalObject: "wx",
   },
   module: {
     rules: [
@@ -20,6 +22,7 @@ module.exports = {
   },
   plugins: [
     new MinaWebpackPlugin(),
+    new MinaRuntimePlugin(),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
