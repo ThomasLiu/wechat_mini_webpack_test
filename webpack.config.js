@@ -31,5 +31,10 @@ module.exports = {
       },
     ]),
   ],
+  optimization: {
+    runtimeChunk: {
+      name: "runtime",
+    },
+  },
   mode: "none",
 };
