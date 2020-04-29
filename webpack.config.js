@@ -9,6 +9,14 @@ module.exports = {
     path: resolve("dist"),
     filename: "[name].js",
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+      },
+    ],
+  },
   plugins: [
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
@@ -17,6 +25,7 @@ module.exports = {
       {
         from: "**/*",
         to: "./",
+        ignore: ["**/*.js"],
       },
     ]),
   ],
