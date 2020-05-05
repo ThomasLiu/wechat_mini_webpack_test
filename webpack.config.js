@@ -58,4 +58,5 @@ module.exports = {
     },
   },
   mode: debuggable ? "none" : "production",
+  devtool: debuggable ? "inline-source-map" : "source-map",
 };
