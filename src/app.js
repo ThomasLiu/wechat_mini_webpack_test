@@ -1,7 +1,11 @@
 //app.js
+import { camelCase } from "lodash";
 
 App({
   onLaunch: function () {
+    console.log("-----------------------------------------------x");
+    console.log(camelCase("OnLaunch"));
+
     // 展示本地存储能力
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());
