@@ -25,26 +25,51 @@ module.exports = {
         test: /\.js$/,
         use: "babel-loader",
       },
+      {
+        test: /\.(scss)$/,
+        include: /src/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              useRelativePath: true,
+              name: "[path][name].wxss",
+              context: resolve("src"),
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                includePaths: [resolve("src", "styles"), resolve("src")],
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+    }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV) || "development",
       BUILD_TYPE: JSON.stringify(process.env.BUILD_TYPE) || "debug",
     }),
-    new MinaWebpackPlugin(),
-    new MinaRuntimePlugin(),
-    new LodashWebpackPlugin(),
-    new CleanWebpackPlugin({
-      cleanStaleWebpackAssets: false,
+    new MinaWebpackPlugin({
+      scriptExtensions: [".js"],
+      assetExtensions: [".scss"],
     }),
     new CopyWebpackPlugin([
       {
         from: "**/*",
         to: "./",
-        ignore: ["**/*.js"],
+        ignore: ["**/*.js", "**/*.scss"],
       },
     ]),
+    new MinaRuntimePlugin(),
+    new LodashWebpackPlugin(),
   ],
   optimization: {
     splitChunks: {
