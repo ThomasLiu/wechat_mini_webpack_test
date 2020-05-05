@@ -1,17 +1,13 @@
 {
   "name": "miniprogram-webpack",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx webpack --watch --progress"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ThomasLiu/wechat_mini_webpack_test.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ThomasLiu/wechat_mini_webpack_test/issues"
   },
