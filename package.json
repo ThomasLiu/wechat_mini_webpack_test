@@ -2,8 +2,8 @@
   "name": "miniprogram-webpack",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx webpack --watch --progress",
-    "build": "npx webpack --mode=production"
+    "start": "webpack --watch --progress",
+    "build": "cross-env NODE_ENV=production BUILD_TYPE=release webpack"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "babel-plugin-lodash": "^3.3.4",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^7.0.2",
     "ensure-posix-path": "^1.1.1",
     "lodash-webpack-plugin": "^0.11.5",
     "replace-ext": "^1.0.0",

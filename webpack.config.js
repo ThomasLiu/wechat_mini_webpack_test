@@ -1,9 +1,15 @@
 const { resolve } = require("path");
+const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const LodashWebpackPlugin = require("lodash-webpack-plugin");
 const MinaWebpackPlugin = require("./plugin/MinaWebpackPlugin");
 const MinaRuntimePlugin = require("./plugin/MinaRuntimePlugin");
+
+const debuggable = process.env.BUILD_TYPE !== "release";
+
+console.log(`环境：${process.env.NODE_ENV}`);
+console.log(`构建类型：${process.env.BUILD_TYPE}`);
 
 module.exports = {
   context: resolve("src"),
@@ -22,6 +28,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV) || "development",
+      BUILD_TYPE: JSON.stringify(process.env.BUILD_TYPE) || "debug",
+    }),
     new MinaWebpackPlugin(),
     new MinaRuntimePlugin(),
     new LodashWebpackPlugin(),
@@ -47,5 +57,5 @@ module.exports = {
       name: "runtime",
     },
   },
-  mode: "none",
+  mode: debuggable ? "none" : "production",
 };
