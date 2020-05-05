@@ -1,0 +1,10 @@
+@import "../../app.wxss";
+
+.code {
+  font-size: 26rpx;
+  background-color: #f6f6f6;
+  color: #666;
+  margin: 10rpx auto;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}

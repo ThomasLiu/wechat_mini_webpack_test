@@ -19,6 +19,11 @@ module.exports = {
     filename: "[name].js",
     globalObject: "wx",
   },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
+  },
   module: {
     rules: [
       {

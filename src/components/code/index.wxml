@@ -1,0 +1,3 @@
+<view class="code">
+  <span wx:for="{{content}}" wx:for-index="idx" wx:key="idx">{{item}}</span>
+</view>

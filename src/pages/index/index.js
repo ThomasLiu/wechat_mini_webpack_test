@@ -1,6 +1,6 @@
 //index.js
 
-const util = require("../../utils/util.js");
+const util = require("@/utils/util.js");
 console.log(util.formatTime(new Date()));
 
 //获取应用实例

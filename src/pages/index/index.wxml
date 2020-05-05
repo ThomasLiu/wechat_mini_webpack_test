@@ -12,4 +12,5 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <code content="{{['123','2342']}}" />
 </view>
