@@ -35,6 +35,12 @@ module.exports = {
     ]),
   ],
   optimization: {
+    splitChunks: {
+      chunks: "all",
+      name: "common",
+      minChunks: 2,
+      minSize: 0,
+    },
     runtimeChunk: {
       name: "runtime",
     },
