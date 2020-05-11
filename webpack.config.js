@@ -31,7 +31,7 @@ module.exports = {
         use: "babel-loader",
       },
       {
-        test: /\.(scss)$/,
+        test: /\.(less)$/,
         include: /src/,
         use: [
           {
@@ -42,13 +42,14 @@ module.exports = {
               context: resolve("src"),
             },
           },
+          // {
+          //   loader: "css-loader",
+          // },
           {
-            loader: "sass-loader",
-            options: {
-              sassOptions: {
-                includePaths: [resolve("src", "styles"), resolve("src")],
-              },
-            },
+            loader: "less-loader",
+            // options: {
+            //   paths: [resolve("src", "styles"), resolve("src")],
+            // },
           },
         ],
       },
@@ -64,13 +65,13 @@ module.exports = {
     }),
     new MinaWebpackPlugin({
       scriptExtensions: [".js"],
-      assetExtensions: [".scss"],
+      assetExtensions: [".less"],
     }),
     new CopyWebpackPlugin([
       {
         from: "**/*",
         to: "./",
-        ignore: ["**/*.js", "**/*.scss"],
+        ignore: ["**/*.js", "**/*.less"],
       },
     ]),
     new MinaRuntimePlugin(),

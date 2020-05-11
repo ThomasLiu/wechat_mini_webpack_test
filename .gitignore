@@ -7,7 +7,6 @@
 .idea/
 .idea
 .log
-*.less
 package-lock.json
 yarn.lock
 coverage/

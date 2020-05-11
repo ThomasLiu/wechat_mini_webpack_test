@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/ThomasLiu/wechat_mini_webpack_test#readme",
   "dependencies": {
+    "css-loader": "^3.5.3",
     "lodash": "^4.17.15",
     "moment": "^2.24.0"
   },
@@ -27,6 +28,7 @@
     "cross-env": "^7.0.2",
     "ensure-posix-path": "^1.1.1",
     "file-loader": "^6.0.0",
+    "less-loader": "^6.1.0",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass": "^4.14.1",
     "replace-ext": "^1.0.0",
